@@ -1,0 +1,60 @@
+{
+  "info": {
+    "name": "Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Test Product\",\n  \"price\": 100,\n  \"description\": \"demo\",\n  \"category\": \"<categoryId>\"\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/v1/products", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","v1","products"] }
+      }
+    },
+    {
+      "name": "Get All Inventories",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/api/v1/inventories", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","v1","inventories"] } }
+    },
+    {
+      "name": "Add Stock",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"product\": \"<productId>\", \"quantity\": 10 }" },
+        "url": { "raw": "http://localhost:3000/api/v1/inventories/add_stock", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","v1","inventories","add_stock"] }
+      }
+    },
+    {
+      "name": "Remove Stock",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"product\": \"<productId>\", \"quantity\": 2 }" },
+        "url": { "raw": "http://localhost:3000/api/v1/inventories/remove_stock", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","v1","inventories","remove_stock"] }
+      }
+    },
+    {
+      "name": "Reserve",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"product\": \"<productId>\", \"quantity\": 1 }" },
+        "url": { "raw": "http://localhost:3000/api/v1/inventories/reserve", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","v1","inventories","reserve"] }
+      }
+    },
+    {
+      "name": "Sold",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"product\": \"<productId>\", \"quantity\": 1 }" },
+        "url": { "raw": "http://localhost:3000/api/v1/inventories/sold", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","v1","inventories","sold"] }
+      }
+    }
+  ]
+}
